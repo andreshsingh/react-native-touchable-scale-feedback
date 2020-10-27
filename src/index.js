@@ -38,7 +38,6 @@ class TouchableScaleFeedback extends React.Component {
         onHandlerStateChange={this.onStateChange}>
         <Animated.View
           style={[
-            this.props.style,
             {
               transform: [{ scale }]
             }
@@ -53,7 +52,6 @@ class TouchableScaleFeedback extends React.Component {
 }
 
 TouchableScaleFeedback.propTypes = {
-  style: PropTypes.any,
   onPress: PropTypes.func,
   children: PropTypes.element,
   activeScale: PropTypes.number,
@@ -61,7 +59,6 @@ TouchableScaleFeedback.propTypes = {
 }
 
 TouchableScaleFeedback.defaultProps = {
-  style: {},
   onPress: () => { },
   children: <></>,
   activeScale: 0.9,
