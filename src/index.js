@@ -1,0 +1,71 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Animated from 'react-native-reanimated';
+import { TapGestureHandler } from 'react-native-gesture-handler';
+
+import { runScaleTimer } from './helpers';
+
+const {
+  Value,
+  event,
+  Clock,
+} = Animated;
+
+class TouchableScaleFeedback extends React.Component {
+  gestureState = new Value(-1);
+
+  clock = new Clock();
+
+  onStateChange = event([
+    {
+      nativeEvent: { state: this.gestureState },
+    },
+  ]);
+
+
+  render() {
+    const scale = runScaleTimer(
+      this.clock,
+      this.gestureState,
+      this.props.onPress,
+      this.props.activeScale,
+      this.props.inactiveScale
+    );
+    return (
+      <TapGestureHandler
+        maxDurationMs={100000}
+        shouldCancelWhenOutside
+        onHandlerStateChange={this.onStateChange}>
+        <Animated.View
+          style={[
+            this.props.style,
+            {
+              transform: [{ scale }]
+            }
+          ]}
+        >
+          {this.props.children}
+        </Animated.View>
+      </TapGestureHandler>
+    );
+  }
+
+}
+
+TouchableScaleFeedback.propTypes = {
+  style: PropTypes.any,
+  onPress: PropTypes.func,
+  children: PropTypes.element,
+  activeScale: PropTypes.number,
+  inactiveScale: PropTypes.number
+}
+
+TouchableScaleFeedback.defaultProps = {
+  style: {},
+  onPress: () => { },
+  children: <></>,
+  activeScale: 0.9,
+  inactiveScale: 1
+}
+
+export default TouchableScaleFeedback;

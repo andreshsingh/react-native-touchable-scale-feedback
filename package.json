@@ -1,0 +1,35 @@
+{
+  "name": "react-native-touchable-scale-feedback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreshsingh/react-native-touchable-scale-feedback.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component",
+    "ios",
+    "android",
+    "reanimated-v1",
+    "react-native-touchable-scale-feedback",
+    "react-native-touchable-scale"
+  ],
+  "author": "Andresh Singh <singhandresh09@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.57.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "bugs": {
+    "url": "https://github.com/andreshsingh/react-native-touchable-scale-feedback/issues"
+  },
+  "homepage": "https://github.com/andreshsingh/react-native-touchable-scale-feedback#readme"
+}
